@@ -1,9 +1,23 @@
-<% if user_signed_in? %> 
- <div> Welcome <%= current_user.email %> </div> 
-  <%= button_to "Sign out", destroy_user_session_path, method: :delete %> 
-<% else %>
-  <%= button_to "Sign in", new_user_session_path %> 
-<% end %>
-<h1>Hello welcome!</h1>
-
-<%= link_to "New post", posts_new_path %>
+<nav>
+  <% if user_signed_in? %>
+    <%= button_to "Sign out", destroy_user_session_path, method: :delete %>
+    <p><%= current_user.email.capitalize %></p>
+    <%= link_to "Create Post", posts_new_path %>
+  <% else %>
+    <%= button_to "Sign in", new_user_session_path%>
+    <h1>Welcome</h1>
+  <% end %>
+</nav>
+<div class="post-container">
+  <% @posts.each do |post| %>
+    <div class="post">
+      <h3><%= post.title.capitalize %></h3>
+      <% if user_signed_in? %>
+        <p>Author: <%= current_user.email %></p>
+      <%else%>
+        <p>Author: Anonymous</p>
+      <%end%>
+      <p><%= post.body.upcase %></p>
+    </div>
+  <%end%>
+</div>

@@ -10,15 +10,17 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
+    @post.user_id = current_user.id
 
     if @post.save
-      redirect_to posts_path
+      redirect_to posts_index_path
     else
-      render :new, status: :unprocessable_enity
+      render :new, status: :unprocessable_entity
     end
   end
 
   private
+
   def post_params
     params.expect(post: [ :title, :body ])
   end
