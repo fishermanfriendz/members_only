@@ -1,24 +1,17 @@
-# README
+# Members only website
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+- Features:
+  - [x] sing in
+  - [x] log in
+  - [ ] confirm email
+  - [ ] create username
+  - [x] create post
+  - [x] view posts
+  - [x] anonymous mode
+  - [ ] delete posts
+  
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- Tech:
+  - Back: RoR
+  - Front: Erb + Vanilla CSS + google fonts
+  - DB: SQlite 3
